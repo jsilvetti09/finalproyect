@@ -1,0 +1,43 @@
+{% extends 'home.html' %}
+
+{% block contenidos %}
+
+<br>
+<br>
+
+<div class="container">
+
+<p><h4>{{Notebook.titulo}}</h4></p>
+
+{% if Notebook.imagenComputadora %}
+    <p><img src="{{Notebook.imagenComputadora.url}}" alt=""></p>
+{% endif %}
+<p>Marca: {{Notebook.marca}}</p>
+<p>Modelo: {{Notebook.modelo}}</p>
+<p>Descripcion: {{Notebook.descripcion}}</p>
+<p>Año: {{Notebook.anio}}</p>
+<p>Precio(US$): {{Notebook.precio}}</p>
+<p>Teléfono de Contacto: {{Notebook.telefonoContacto}}</p>
+<p>Email de Contacto: {{Notebook.emailContacto}}</p>
+
+</div>
+<br>
+<div class="container">
+    <h4>Comentarios...</h4>
+    <br>
+    <div class="container">
+    {% if not Notebook.comentarios.all %}
+        No han comentado esta Computadora
+    {% else %}
+        {% for comentario in Notebook.comentarios.all %}
+        <p><strong>{{comentario.nombre}}</strong></p>
+        <p>{{comentario.mensaje}}</p>
+        <p><small>{{comentario.fechaComentario}}</small></p>
+        <hr>
+        {% endfor %}
+    {% endif %}
+    <a href="{% url 'comentario' Notebook.pk %}">Agrega un Comentario</a>
+    </div>
+</div>
+<br>
+{% endblock contenidos %}

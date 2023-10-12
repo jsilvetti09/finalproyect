@@ -1,0 +1,31 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block navegacion %}
+<a class="navbar-brand inicio" href="{% url 'home' %}">
+    <strong style="font-size: 1.2em;">Inicio</strong>
+</a>
+{% endblock navegacion %}
+
+
+{% block contenidos %}
+<header class="masthead">
+    <div class="container px-4 px-lg-5 h-100">
+        <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
+            <h1>Acerca de mí</h1>
+            <div class="card bg-success">
+                <div class="card-body text-center">
+                    <img src="{% static 'imagenes/imagenjose.jpeg' %}" class="rounded-circle mb-3" width="150px">
+                    <h3 class="card-title mb-3">José Silvetti</h3>
+                    <p class="card-text">Python Developer Jr.</p>
+                    <p style="font-family: 'Arial', sans-serif; font-size: 18px; color: #333;">Estudiante en la academia CoderHouse, realizando mi primer proyecto,
+                        utilizando Pythom, Html, CSS. 
+                        Excelente experiencia, excelentes compañeros, altamentamente recomendable.
+                    </p>
+                    <p class="card-text">Sigueme en:</p>
+                    <a href="https://www.linkedin.com/in/jose-luis-b50735182/"><i class="bi bi-linkedin text-dark mx-1"></i></a>
+                
+                </div>
+            </div>
+            <a class="btn btn-primary btn-xl" href="{% url 'home' %}">Volver</a>
+{% endblock contenidos %}

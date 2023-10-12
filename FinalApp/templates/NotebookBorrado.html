@@ -1,0 +1,36 @@
+{% extends 'home.html' %}
+
+{% block contenidos %}
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<div class="container text-center">
+    {% if user.id == Notebook.usuario.id %}
+    <form method="post">
+        {% csrf_token %}
+        <h4>¿Estás seguro(a) que deseas borrar esta Notebook {{ Notebook.marca }} {{ Notebook.modelo }}?</h4>
+        <p>
+            <button type="submit" class="btn btn-danger">Eliminar</button>
+        </p>
+    </form>
+    {% else %}
+    <h4>No tienes acceso a esta página.</h4>
+    {% endif %}
+</div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+{% endblock contenidos %}
