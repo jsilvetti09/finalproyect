@@ -93,7 +93,7 @@ class NotebookLista(ListView):
     queryset = Computadora.objects.filter(computadora__startswith='Notebook')
     template_name = 'listaNotebooks.html'
 
-class NotebookDetalle(LoginRequiredMixin,DetailView):
+class NotebookDetalle(DetailView):
     model = Computadora
     context_object_name = 'Notebook'
     template_name = 'NotebookDetalle.html'
@@ -118,7 +118,7 @@ class NetbookLista(ListView):
     queryset = Computadora.objects.filter(computadora__startswith='Netbook')
     template_name = 'listaNetbooks.html'
 
-class NetbookDetalle(LoginRequiredMixin, DetailView):
+class NetbookDetalle(DetailView):
     model = Computadora
     context_object_name = 'Netbook'
     template_name = 'NetbookDetalle.html'
@@ -143,7 +143,7 @@ class OtroLista(ListView):
     queryset = Computadora.objects.filter(computadora__startswith='otro')
     template_name = 'listaOtros.html'
 
-class OtroDetalle(LoginRequiredMixin, DetailView):
+class OtroDetalle(DetailView):
     model = Computadora
     context_object_name = 'otros'
     template_name = 'otroDetalle.html'

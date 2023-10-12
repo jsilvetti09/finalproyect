@@ -41,4 +41,5 @@ class Comentario(models.Model):
         return '%s - %s' % (self.nombre, self.comentario)
 
 
+
 # Create your models here.

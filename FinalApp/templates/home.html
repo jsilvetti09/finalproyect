@@ -42,6 +42,8 @@
                         <li class="nav-item"><a class="nav-link" href={% url 'otros' %}>Otros</a></li>
                         {% block reg %}
                         
+                        <li class="nav-item"><a class="nav-link" href={% url 'home' %}>Login</a></li>
+                        <li class="nav-item"><a class="nav-link" href={% url 'registro' %}>Registro</a></li>
                         {% endblock %}
                         {% if user.is_authenticated %}
         <!-- Mostrar el mensaje de bienvenida si el usuario está autenticado -->

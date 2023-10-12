@@ -26,19 +26,22 @@
     <h4>Comentarios...</h4>
     <br>
     <div class="container">
-    {% if not otros.comentarios.all %}
-        No han comentado este Computadora
+    {% if not user.is_authenticated %}
+        <p>Debes <a href="{% url 'login' %}">iniciar sesión</a> para agregar un comentario.</p>
     {% else %}
-        {% for comentario in otros.comentarios.all %}
-        <p><strong>{{comentario.nombre}}</strong></p>
-        <p>{{comentario.mensaje}}</p>
-        <p><small>{{comentario.fechaComentario}}</small></p>
-        <hr>
-        {% endfor %}
+        {% if not otros.comentarios.all %}
+            No han comentado este Computadora
+        {% else %}
+            {% for comentario in otros.comentarios.all %}
+            <p><strong>{{comentario.nombre}}</strong></p>
+            <p>{{comentario.mensaje}}</p>
+            <p><small>{{comentario.fechaComentario}}</small></p>
+            <hr>
+            {% endfor %}
+        {% endif %}
+        <a href="{% url 'comentario' otros.pk %}">Agrega un Comentario</a>
     {% endif %}
-    <a href="{% url 'comentario' otros.pk %}">Agrega un Comentario</a>
     </div>
 </div>
 <br>
-<a class="btn btn-primary btn-xl" href="{% url 'otros' %}">Volver</a>
 {% endblock contenidos %}
